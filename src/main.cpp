@@ -1,5 +1,4 @@
 #ifdef USE_NATIVE
-#include <time.h>
 #define LGFX_AUTODETECT
 #include <LovyanGFX.h>
 
@@ -9,13 +8,13 @@
 #endif
 
 #include <Arduino.h>
-#include <stdlib.h>
+// #include <stdlib.h>
 #include <string_asukiaaa.h>
 #include <unistd.h>
 
-#include <iostream>
+// #include <iostream>
 
-#if defined(SDL_h_)
+#if defined(USE_NATIVE)
 // static LGFX lcd ( 320, 240, 2 );
 static LGFX lcd(1080, 1920, 2);
 // static LGFX lcd(1920, 1080, 2);
@@ -54,10 +53,11 @@ void loop() {
   sleep(1);
 #else
   delay(1000);
+  // delay(999);
 #endif
 }
 
-#if defined(SDL_h_)
+#if defined(USE_NATIVE)
 int user_func(bool* running) {
   setup();
   do {
